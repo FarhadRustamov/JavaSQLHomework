@@ -57,7 +57,7 @@ public class UpdateActions {
                             j++;
                         }
                     } else if (i == 2) {
-                        System.out.println("Количество попыток исчерпано!");
+                        System.out.println("Количество попыток исчерпано! Не удалось обновить животное!");
                         break;
                     } else {
                         System.out.print("Такого id не существует в БД! ");
