@@ -1,6 +1,6 @@
-package dbConnect;
+package database.connect;
 
-import dbCredentials.Credentials;
+import database.credentials.Credentials;
 
 import java.sql.*;
 import java.util.Map;
@@ -10,6 +10,10 @@ public class MySQLConnection implements DBConnection {
     private static MySQLConnection mySQLConnection;
     private Statement statement;
     private Connection connection;
+
+    public Connection getConnection() {
+        return connection;
+    }
 
     private MySQLConnection() { // Не вижу смысла создания отдельного метода open(). Создание конекшна и стейтмента специально в конструкторе, чтобы при вызове метода getInstance() сразу создавался всего один конекшн и один стейтмент
         Credentials credentials = new Credentials();

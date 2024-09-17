@@ -1,8 +1,8 @@
-package tables_in_MySQL_DB;
+package tables_in_mysql_db;
 
 import animals.Animal;
 import data.AnimalSpecies;
-import dbConnect.MySQLConnection;
+import database.connect.MySQLConnection;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,8 +11,13 @@ import java.util.List;
 import java.util.Locale;
 
 public class AnimalsTable extends AbsTable<Animal> {
-    private final String TABLE_TITLE = "Animals";
+
+    private static final String TABLE_TITLE = "Animals";
     private final List<String> LIST_OF_COLUMNS = List.of("name", "age", "weight", "color", "type");
+
+    public AnimalsTable() {
+        super(TABLE_TITLE);
+    }
 
     public void createAnimalsTable() {
         List<String> listOfColumns = new ArrayList<>();
@@ -22,19 +27,19 @@ public class AnimalsTable extends AbsTable<Animal> {
         listOfColumns.add(LIST_OF_COLUMNS.get(2) + " DECIMAL(20,2)");
         listOfColumns.add(LIST_OF_COLUMNS.get(3) + " VARCHAR(50)");
         listOfColumns.add(LIST_OF_COLUMNS.get(4) + " VARCHAR(50)");
-        createTable(TABLE_TITLE, listOfColumns);
+        createTable(listOfColumns);
     }
 
     public void dropAnimalsTable() {
-        dropTable(TABLE_TITLE);
+        dropTable();
     }
 
     public int checkIfAnimalsTableEmpty() {
-        return checkIfTableEmpty(TABLE_TITLE);
+        return checkIfTableEmpty();
     }
 
     public void selectAllFromAnimalsTable() {
-        try (ResultSet rs = selectALL(TABLE_TITLE)) {
+        try (ResultSet rs = selectALL()) {
             System.out.printf("%5s %10s %10s %15s %15s %10s%n", "id", "name", "age", "weight", "color", "type");
             System.out.println("-----------------------------------------------------------------------");
             while (rs.next()) {

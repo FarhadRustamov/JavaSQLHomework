@@ -1,10 +1,10 @@
-package command_Actions;
+package command_actions;
 
 import animal_properties.AnimalProperties;
 import animals.Animal;
 import data.AnimalSpecies;
 import factory.AnimalFactory;
-import tables_in_MySQL_DB.AnimalsTable;
+import tables_in_mysql_db.AnimalsTable;
 
 import java.util.Arrays;
 import java.util.Scanner;

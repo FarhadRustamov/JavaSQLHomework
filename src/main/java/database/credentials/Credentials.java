@@ -1,4 +1,4 @@
-package dbCredentials;
+package database.credentials;
 
 import utils.PropertyUtils;
 

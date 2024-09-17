@@ -1,11 +1,9 @@
-package main_console;
-
 import data.Command;
-import dbConnect.MySQLConnection;
-import tables_in_MySQL_DB.AnimalsTable;
-import command_Actions.AddActions;
-import command_Actions.ListActions;
-import command_Actions.UpdateActions;
+import database.connect.MySQLConnection;
+import tables_in_mysql_db.AnimalsTable;
+import command_actions.AddActions;
+import command_actions.ListActions;
+import command_actions.UpdateActions;
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -38,7 +36,6 @@ public class Main {
                         break;
                     case EXIT:
                         scanner.close();
-                        animalsTable.dropAnimalsTable();
                         MySQLConnection.getInstance().closeConnection();
                         System.exit(0);
                 }

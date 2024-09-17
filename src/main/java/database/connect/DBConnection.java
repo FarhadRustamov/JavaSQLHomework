@@ -1,4 +1,4 @@
-package dbConnect;
+package database.connect;
 
 import java.sql.ResultSet;
 
